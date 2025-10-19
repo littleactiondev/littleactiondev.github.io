@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Action</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    nav {
+      background: #333;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #74ebd5;
+    }
+    section {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    section h2 {
+      margin-bottom: 20px;
+      color: #444;
+    }
+    .btn {
+      display: inline-block;
+      background: #74ebd5;
+      color: #333;
+      padding: 12px 25px;
+      margin-top: 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #ACB6E5;
+      transform: scale(1.05);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #333;
+      color: white;
+      margin-top: 50px;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Little Action</h1>
+    <p>작은 행동이 큰 변화를 만듭니다.</p>
+    <a href="#about" class="btn">더 알아보기</a>
+  </header>
+
+  <nav>
+    <a href="#about">회사 소개</a>
+    <a href="#services">서비스</a>
+    <a href="#contact">문의하기</a>
+  </nav>
+
+  <section id="about">
+    <h2>회사 소개</h2>
+    <p>
+      Little Action은 작은 행동으로 세상에 긍정적인 영향을 주는 것을 목표로 합니다.<br>
+      우리는 지속가능한 가치와 혁신적인 아이디어를 통해 새로운 변화를 만들어갑니다.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>서비스</h2>
+    <p>
+      ✔ 교육 및 컨설팅<br>
+      ✔ 디지털 콘텐츠 제작<br>
+      ✔ 커뮤니티 플랫폼 운영
+    </p>
+    
+  </section>
+
+  <section id="contact">
+    <h2>문의하기</h2>
+    <p>궁금한 점이 있으시면 이메일로 연락주세요.</p>
+    <p><strong>Email:</strong> littleaction.dev@gmail.com</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Little Action. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
