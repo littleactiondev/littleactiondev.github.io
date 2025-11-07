@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LianWord - 通过同源词学习语言</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="像孩子学习母语一样，通过你的大脑已经知道的同源词来学习外语词汇。">
+    <meta name="keywords" content="语言学习, 词汇, 同源词, LianWord">
+
+    <!-- hreflang tags for SEO -->
+    <link rel="alternate" hreflang="en" href="https://lianword.com/" />
+    <link rel="alternate" hreflang="ko" href="https://lianword.com/ko/" />
+    <link rel="alternate" hreflang="ja" href="https://lianword.com/ja/" />
+    <link rel="alternate" hreflang="zh" href="https://lianword.com/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://lianword.com/" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            max-width: 600px;
+            line-height: 1.8;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .tagline .highlight {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+        }
+
+        .language-switcher select {
+            padding: 0.6rem 1rem;
+            border: 2px solid #FF9F5A;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .language-switcher select:hover {
+            border-color: #FF6B6B;
+            box-shadow: 0 2px 8px rgba(255, 159, 90, 0.3);
+        }
+
+        nav {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+        }
+
+        nav a {
+            color: #666;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin-left: 0.5rem;
+        }
+
+        nav a:hover {
+            color: #1a1a1a;
+            background: #f5f5f5;
+        }
+
+        .privacy-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .privacy-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+        }
+
+        .privacy-section h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .privacy-section p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .privacy-section ul {
+            margin: 1rem 0 1rem 2rem;
+            color: #555;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .language-switcher {
+                top: 1rem;
+                left: 1rem;
+            }
+        }
+
+        .download-button {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2.5rem;
+            background-color: #4285f4;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-button:hover {
+            background-color: #357ae8;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <select id="languageSelect" onchange="switchLanguage(this.value)">
+            <option value="en">🌍 English</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="zh" selected>🇨🇳 中文</option>
+        </select>
+    </div>
+
+    <nav>
+        <a href="#home">首页</a>
+        <a href="/zh/blog/">博客</a>
+        <a href="#privacy">隐私政策</a>
+    </nav>
+
+    <header id="home">
+        <div class="logo">LianWord</div>
+        <div class="tagline">
+            像孩子学习母语一样<br>
+            学习外语词汇<br>
+            通过你的大脑已经知道的<br>
+            <span class="highlight">同源词</span>
+        </div>
+
+        <a href="https://play.google.com/store/apps/details?id=com.lianword&pcampaignid=web_share"
+           target="_blank"
+           class="download-button">
+            在Google Play下载
+        </a>
+    </header>
+
+    <section class="privacy-section" id="privacy">
+        <h1>隐私政策</h1>
+        <p><strong>生效日期:</strong> 2025年10月25日</p>
+        <p><strong>最后更新:</strong> 2025年10月25日</p>
+
+        <h2>1. 简介</h2>
+        <p>
+            LianWord（以下简称"我们"）致力于保护您的隐私。本隐私政策说明了当您使用我们的移动应用程序和相关服务时，我们如何收集、使用、披露和保护您的信息。
+        </p>
+
+        <h2>2. 我们收集的信息</h2>
+        <p>我们可能会收集以下类型的信息：</p>
+        <ul>
+            <li><strong>个人信息:</strong> 创建账户时的电子邮件地址、姓名和账户凭证。</li>
+            <li><strong>使用数据:</strong> 有关您如何与应用互动的信息，包括学习进度、学习的词汇和使用的应用功能。</li>
+            <li><strong>设备信息:</strong> 设备类型、操作系统、唯一设备标识符和移动网络信息。</li>
+            <li><strong>音频数据:</strong> 用于发音练习的语音录音（在本地处理，除非您明确保存，否则不会永久存储）。</li>
+        </ul>
+
+        <h2>3. 我们如何使用您的信息</h2>
+        <p>我们将收集的信息用于以下目的：</p>
+        <ul>
+            <li>提供、维护和改进我们的语言学习服务</li>
+            <li>个性化您的学习体验并跟踪您的进度</li>
+            <li>就更新、新功能和客户支持与您沟通</li>
+            <li>分析使用模式并改进应用功能</li>
+            <li>确保我们服务的安全性和完整性</li>
+        </ul>
+
+        <h2>4. 数据共享和披露</h2>
+        <p>我们不会出售您的个人信息。我们只会在以下情况下共享您的信息：</p>
+        <ul>
+            <li><strong>服务提供商:</strong> 协助我们运营应用和提供服务的第三方供应商</li>
+            <li><strong>法律要求:</strong> 法律要求或为保护我们的权利和安全</li>
+            <li><strong>业务转让:</strong> 与合并、收购或资产出售有关</li>
+        </ul>
+
+        <h2>5. 数据安全</h2>
+        <p>
+            我们实施适当的技术和组织措施来保护您的个人信息免遭未经授权的访问、更改、披露或破坏。但是，没有任何通过互联网传输或电子存储的方法是100%安全的。
+        </p>
+
+        <h2>6. 数据保留</h2>
+        <p>
+            我们会在实现本隐私政策中概述的目的所需的时间内保留您的个人信息，除非法律要求或允许更长的保留期。您可以随时要求删除您的账户和相关数据。
+        </p>
+
+        <h2>7. 您的权利</h2>
+        <p>根据您所在的位置，您可能拥有以下权利：</p>
+        <ul>
+            <li>访问您的个人信息</li>
+            <li>更正不准确的数据</li>
+            <li>删除您的个人信息</li>
+            <li>反对或限制某些处理活动</li>
+            <li>数据可携性</li>
+        </ul>
+
+        <h2>8. 儿童隐私</h2>
+        <p>
+            我们的应用不适用于13岁以下的儿童。我们不会故意收集13岁以下儿童的个人信息。如果您认为我们收集了13岁以下儿童的信息，请立即与我们联系。
+        </p>
+
+        <h2>9. 国际数据传输</h2>
+        <p>
+            您的信息可能会被传输到您所在国家/地区以外的国家/地区并在那里进行处理。我们确保采取适当的保护措施来根据本隐私政策保护您的信息。
+        </p>
+
+        <h2>10. 隐私政策的变更</h2>
+        <p>
+            我们可能会不时更新本隐私政策。我们将通过在此页面上发布新的隐私政策并更新"最后更新"日期来通知您任何变更。我们鼓励您定期查看本隐私政策。
+        </p>
+
+        <h2>11. 联系我们</h2>
+        <p>
+            如果您对本隐私政策或我们的数据做法有任何疑问或疑虑，请通过以下方式联系我们：
+        </p>
+        <p>
+            <strong>电子邮件:</strong> help@lianword.com<br>
+            <strong>网站:</strong> https://lianword.com
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LianWord. All rights reserved.</p>
+    </footer>
+
+    <!-- Language auto-detection and redirection -->
+    <script>
+        // Language switcher function
+        function switchLanguage(lang) {
+            const langMap = {
+                'en': '/',
+                'ko': '/ko/',
+                'ja': '/ja/',
+                'zh': '/zh/'
+            };
+            window.location.href = langMap[lang];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}LianWord</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Learn foreign vocabulary like a child learns their native language through cognates{% endif %}">
+
+    <!-- hreflang tags for SEO -->
+    <link rel="alternate" hreflang="en" href="https://lianword.com{{ page.url | remove: '/ko' | remove: '/ja' | remove: '/zh' }}" />
+    <link rel="alternate" hreflang="ko" href="https://lianword.com/ko{{ page.url | remove: '/ko' | remove: '/ja' | remove: '/zh' }}" />
+    <link rel="alternate" hreflang="ja" href="https://lianword.com/ja{{ page.url | remove: '/ko' | remove: '/ja' | remove: '/zh' }}" />
+    <link rel="alternate" hreflang="zh" href="https://lianword.com/zh{{ page.url | remove: '/ko' | remove: '/ja' | remove: '/zh' }}" />
+    <link rel="alternate" hreflang="x-default" href="https://lianword.com{{ page.url | remove: '/ko' | remove: '/ja' | remove: '/zh' }}" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+        }
+
+        .language-switcher select {
+            padding: 0.6rem 1rem;
+            border: 2px solid #FF9F5A;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .language-switcher select:hover {
+            border-color: #FF6B6B;
+            box-shadow: 0 2px 8px rgba(255, 159, 90, 0.3);
+        }
+
+        nav {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #666;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin-left: 0.5rem;
+        }
+
+        nav a:hover {
+            color: #1a1a1a;
+            background: #f5f5f5;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .language-switcher {
+                top: 1rem;
+                left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <select id="languageSelect" onchange="switchLanguage(this.value)">
+            <option value="en" {% if page.lang == 'en' %}selected{% endif %}>🌍 English</option>
+            <option value="ko" {% if page.lang == 'ko' %}selected{% endif %}>🇰🇷 한국어</option>
+            <option value="ja" {% if page.lang == 'ja' %}selected{% endif %}>🇯🇵 日本語</option>
+            <option value="zh" {% if page.lang == 'zh' %}selected{% endif %}>🇨🇳 中文</option>
+        </select>
+    </div>
+
+    <nav>
+        {% if page.lang == 'ko' %}
+            <a href="/ko/">홈</a>
+            <a href="/ko/blog/">블로그</a>
+        {% elsif page.lang == 'ja' %}
+            <a href="/ja/">ホーム</a>
+            <a href="/ja/blog/">ブログ</a>
+        {% elsif page.lang == 'zh' %}
+            <a href="/zh/">首页</a>
+            <a href="/zh/blog/">博客</a>
+        {% else %}
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+        {% endif %}
+    </nav>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LianWord. All rights reserved.</p>
+    </footer>
+
+    <!-- Language switcher function -->
+    <script>
+        function switchLanguage(lang) {
+            const currentPath = window.location.pathname;
+            const langMap = {
+                'en': currentPath.replace(/^\/(ko|ja|zh)/, ''),
+                'ko': '/ko' + currentPath.replace(/^\/(ko|ja|zh)/, ''),
+                'ja': '/ja' + currentPath.replace(/^\/(ko|ja|zh)/, ''),
+                'zh': '/zh' + currentPath.replace(/^\/(ko|ja|zh)/, '')
+            };
+            window.location.href = langMap[lang] || '/';
+        }
+    </script>
+</body>
+</html>
