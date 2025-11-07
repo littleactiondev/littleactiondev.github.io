@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LianWord - Language Learning Through Cognates</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn foreign vocabulary like a child learns their native language through cognates that your brain already knows.">
+    <meta name="keywords" content="language learning, vocabulary, cognates, LianWord">
+
+    <!-- hreflang tags for SEO -->
+    <link rel="alternate" hreflang="en" href="https://lianword.com/" />
+    <link rel="alternate" hreflang="ko" href="https://lianword.com/ko/" />
+    <link rel="alternate" hreflang="ja" href="https://lianword.com/ja/" />
+    <link rel="alternate" hreflang="zh" href="https://lianword.com/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://lianword.com/" />
+
     <style>
         * {
             margin: 0;
@@ -49,6 +61,31 @@
             color: #1a1a1a;
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+        }
+
+        .language-switcher select {
+            padding: 0.6rem 1rem;
+            border: 2px solid #FF9F5A;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .language-switcher select:hover {
+            border-color: #FF6B6B;
+            box-shadow: 0 2px 8px rgba(255, 159, 90, 0.3);
+        }
+
         nav {
             position: fixed;
             top: 2rem;
@@ -61,74 +98,12 @@
             padding: 0.5rem 1rem;
             border-radius: 4px;
             transition: all 0.3s;
+            margin-left: 0.5rem;
         }
 
         nav a:hover {
             color: #1a1a1a;
             background: #f5f5f5;
-        }
-
-        /* Google Translate 위젯 스타일 */
-        #google_translate_element {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            z-index: 1000;
-            background: white;
-            padding: 10px 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border: 2px solid #FF9F5A;
-        }
-
-        /* Google Translate 배너 완전히 숨기기 */
-        .goog-te-banner-frame {
-            display: none !important;
-        }
-
-        body {
-            top: 0 !important;
-        }
-
-        .skiptranslate {
-            display: block !important;
-        }
-
-        /* 선택 박스 스타일 */
-        .goog-te-gadget {
-            font-family: inherit !important;
-            font-size: 0 !important;
-            color: transparent !important;
-        }
-
-        .goog-te-gadget .goog-te-combo {
-            margin: 0;
-            padding: 8px 12px;
-            border: 2px solid #FF9F5A;
-            border-radius: 8px;
-            font-size: 14px !important;
-            font-weight: 500;
-            color: #333 !important;
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .goog-te-gadget .goog-te-combo:hover {
-            border-color: #FF6B6B;
-            box-shadow: 0 2px 8px rgba(255, 159, 90, 0.3);
-        }
-
-        /* "Powered by" 텍스트 숨기기 */
-        .goog-te-gadget span {
-            display: none !important;
-        }
-
-        /* 언어 아이콘 추가 */
-        #google_translate_element::before {
-            content: "🌍 ";
-            font-size: 18px;
-            margin-right: 5px;
         }
 
         .privacy-section {
@@ -177,17 +152,17 @@
             .logo {
                 font-size: 2.5rem;
             }
-            
+
             .tagline {
                 font-size: 1.2rem;
             }
-            
+
             nav {
                 top: 1rem;
                 right: 1rem;
             }
 
-            #google_translate_element {
+            .language-switcher {
                 top: 1rem;
                 left: 1rem;
             }
@@ -197,7 +172,7 @@
             display: inline-block;
             margin-top: 3rem;
             padding: 1rem 2.5rem;
-            background-color: #4285f4; /* Google Blue */
+            background-color: #4285f4;
             color: #fff;
             text-decoration: none;
             font-size: 1.1rem;
@@ -211,33 +186,22 @@
             background-color: #357ae8;
             transform: translateY(-2px);
         }
-
-        /* 로딩 인디케이터 */
-        .translate-loading {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            display: none;
-            z-index: 10000;
-        }
     </style>
 </head>
 <body>
-    <!-- Google Translate 위젯 -->
-    <div id="google_translate_element"></div>
-    
-    <!-- 로딩 인디케이터 (옵션) -->
-    <div class="translate-loading" id="translateLoading">
-        🌍 언어를 감지하는 중...
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <select id="languageSelect" onchange="switchLanguage(this.value)">
+            <option value="en">🌍 English</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="zh">🇨🇳 中文</option>
+        </select>
     </div>
 
     <nav>
         <a href="#home">Home</a>
+        <a href="/blog/">Blog</a>
         <a href="#privacy">Privacy</a>
     </nav>
 
@@ -249,11 +213,11 @@
             <span class="highlight">through cognates</span><br>
             that your brain already knows.
         </div>
-        
-        <a href="https://play.google.com/store/apps/details?id=com.lianword&pcampaignid=web_share" 
-           target="_blank" 
+
+        <a href="https://play.google.com/store/apps/details?id=com.lianword&pcampaignid=web_share"
+           target="_blank"
            class="download-button">
-            Google Play에서 앱 다운로드
+            Download on Google Play
         </a>
     </header>
 
@@ -343,95 +307,42 @@
         <p>&copy; 2025 LianWord. All rights reserved.</p>
     </footer>
 
-    <!-- Google Translate Script -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'ko,ja,en,zh',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <!-- IP 기반 자동 언어 감지 -->
+    <!-- Language auto-detection and redirection -->
     <script>
-        window.addEventListener('load', function() {
-            // 로딩 표시
-            const loading = document.getElementById('translateLoading');
-            if (loading) loading.style.display = 'block';
+        // Language switcher function
+        function switchLanguage(lang) {
+            const langMap = {
+                'en': '/',
+                'ko': '/ko/',
+                'ja': '/ja/',
+                'zh': '/zh/'
+            };
+            window.location.href = langMap[lang];
+        }
 
-            // Cloudflare CDN-CGI trace로 국가 코드 가져오기
-            fetch('https://www.cloudflare.com/cdn-cgi/trace')
-                .then(response => response.text())
-                .then(data => {
-                    // 국가 코드 추출
-                    const countryMatch = data.match(/loc=([A-Z]{2})/);
-                    const country = countryMatch ? countryMatch[1] : 'US';
-                    
-                    console.log('감지된 국가:', country);
-                    
-                    // 국가별 언어 매핑
-                    const langMap = {
-                        'KR': 'ko',    // 한국
-                        'JP': 'ja',    // 일본
-                        'CN': 'zh-CN', // 중국
-                        'TW': 'zh-TW', // 대만
-                        'HK': 'zh-TW'  // 홍콩
-                    };
-                    
-                    const targetLang = langMap[country];
-                    
-                    // 해당 국가면 자동 번역 실행
-                    if (targetLang) {
-                        console.log('자동 번역 실행:', targetLang);
-                        
-                        // Google Translate가 로드될 때까지 대기
-                        setTimeout(function() {
-                            const selectElement = document.querySelector('.goog-te-combo');
-                            if (selectElement) {
-                                selectElement.value = targetLang;
-                                selectElement.dispatchEvent(new Event('change'));
-                                console.log('번역 완료!');
-                            }
-                            
-                            // 로딩 숨기기
-                            if (loading) loading.style.display = 'none';
-                        }, 1500);
-                    } else {
-                        // 영어권 국가는 번역 안 함
-                        if (loading) loading.style.display = 'none';
-                    }
-                })
-                .catch(error => {
-                    console.error('국가 감지 실패:', error);
-                    // 에러 시 로딩 숨기기
-                    if (loading) loading.style.display = 'none';
-                });
-        });
+        // Auto-detect user language on first visit
+        (function() {
+            // Check if user has already been redirected
+            const hasVisited = sessionStorage.getItem('langRedirected');
+            if (hasVisited) return;
 
-        // 사용자가 수동으로 언어 변경 시
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.addedNodes.length) {
-                        const select = document.querySelector('.goog-te-combo');
-                        if (select) {
-                            select.addEventListener('change', function() {
-                                console.log('언어 변경됨:', this.value);
-                            });
-                        }
-                    }
-                });
-            });
+            // Get browser language
+            const browserLang = navigator.language || navigator.userLanguage;
+            const langCode = browserLang.split('-')[0]; // Get primary language code
 
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-        });
+            // Map browser language to supported languages
+            const supportedLangs = {
+                'ko': '/ko/',
+                'ja': '/ja/',
+                'zh': '/zh/'
+            };
+
+            // Redirect if browser language is supported and not already on that page
+            if (supportedLangs[langCode] && window.location.pathname === '/') {
+                sessionStorage.setItem('langRedirected', 'true');
+                window.location.href = supportedLangs[langCode];
+            }
+        })();
     </script>
 </body>
 </html>

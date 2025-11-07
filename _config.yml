@@ -1,0 +1,60 @@
+# Site settings
+title: LianWord
+description: Learn foreign vocabulary like a child learns their native language through cognates
+url: "https://lianword.com"
+baseurl: ""
+
+# Author
+author:
+  name: LianWord Team
+  email: help@lianword.com
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Multi-language support
+languages: ["en", "ko", "ja", "zh"]
+default_lang: "en"
+exclude_from_localization: ["assets", "blog"]
+
+# Collections for blog posts
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      lang: "en"
+  - scope:
+      path: "ko"
+    values:
+      lang: "ko"
+  - scope:
+      path: "ja"
+    values:
+      lang: "ja"
+  - scope:
+      path: "zh"
+    values:
+      lang: "zh"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
