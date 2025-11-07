@@ -124,6 +124,25 @@
                 right: 1rem;
             }
         }
+
+        .download-button {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2.5rem;
+            background-color: #4285f4; /* Google Blue */
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-button:hover {
+            background-color: #357ae8;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -140,7 +159,13 @@
             <span class="highlight">through cognates</span><br>
             that your brain already knows.
         </div>
-    </header>
+        
+        <a href="https://play.google.com/store/apps/details?id=com.lianword&pcampaignid=web_share" 
+           target="_blank" 
+           class="download-button">
+            Google Play에서 앱 다운로드
+        </a>
+        </header>
 
     <section class="privacy-section" id="privacy">
         <h1>Privacy Policy</h1>
