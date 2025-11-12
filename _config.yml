@@ -20,7 +20,7 @@ plugins:
   - jekyll-sitemap
 
 # Multi-language support
-languages: ["en", "ko", "ja", "zh"]
+languages: ["en", "ko", "ja", "zh", "vi"]
 default_lang: "en"
 exclude_from_localization: ["assets", "blog"]
 
@@ -50,6 +50,10 @@ defaults:
       path: "zh"
     values:
       lang: "zh"
+  - scope:
+      path: "vi"
+    values:
+      lang: "vi"
 
 # Exclude from processing
 exclude:
