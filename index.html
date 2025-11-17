@@ -268,6 +268,95 @@
             transform: translateY(-1px) scale(0.98);
         }
 
+        /* App Badges */
+        .app-badges {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 3);
+            justify-content: center;
+            align-items: center;
+            margin-top: calc(var(--spacing-unit) * 6);
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .app-badge {
+            display: inline-block;
+            transition: var(--transition-smooth);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .app-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .app-badge img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .app-badge.coming-soon {
+            background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%);
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            min-width: 180px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: not-allowed;
+            opacity: 0.9;
+        }
+
+        .app-badge.coming-soon:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .app-badge.coming-soon .badge-title {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            margin-bottom: 2px;
+        }
+
+        .app-badge.coming-soon .badge-text {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .app-badge.web-app {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #059669 100%);
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            text-align: center;
+            min-width: 180px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-badge.web-app .badge-title {
+            font-size: 0.75rem;
+            opacity: 0.95;
+            margin-bottom: 2px;
+        }
+
+        .app-badge.web-app .badge-text {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             :root {
@@ -354,6 +443,25 @@
            class="download-button">
             Download on Google Play
         </a>
+
+        <div class="app-badges">
+            <a href="https://play.google.com/store/apps/details?id=com.lianword&pcampaignid=web_share"
+               target="_blank"
+               class="app-badge">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                     alt="Get it on Google Play">
+            </a>
+            <a href="https://lianword-official.web.app/"
+               target="_blank"
+               class="app-badge web-app">
+                <div class="badge-title">Try it on web</div>
+                <div class="badge-text">Web App</div>
+            </a>
+            <div class="app-badge coming-soon">
+                <div class="badge-title">App Store</div>
+                <div class="badge-text">Coming Soon</div>
+            </div>
+        </div>
     </header>
 
     <section class="privacy-section" id="privacy">
