@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - LianWord</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="LianWord的隐私政策。">
+    <meta name="keywords" content="隐私政策, LianWord, 隐私">
+
+    <style>
+        :root {
+            --color-primary: #FF6B6B;
+            --color-primary-dark: #EE5A52;
+            --color-secondary: #4ECDC4;
+            --color-accent: #FFE66D;
+            --color-text-primary: #1A1A1A;
+            --color-text-secondary: #666666;
+            --color-text-tertiary: #999999;
+            --color-bg-primary: #FFFFFF;
+            --color-bg-secondary: #F8FAFC;
+            --color-border: #E2E8F0;
+            --color-shadow: rgba(15, 23, 42, 0.08);
+            --spacing-unit: 8px;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--color-text-primary);
+            background: var(--color-bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: calc(var(--spacing-unit) * 4);
+            left: calc(var(--spacing-unit) * 4);
+            z-index: 1000;
+        }
+
+        .language-switcher select {
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            background: var(--color-bg-primary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 1px 3px var(--color-shadow);
+        }
+
+        .language-switcher select:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .language-switcher select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        nav {
+            position: fixed;
+            top: calc(var(--spacing-unit) * 4);
+            right: calc(var(--spacing-unit) * 4);
+            z-index: 1000;
+            display: flex;
+            gap: calc(var(--spacing-unit) * 1);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: calc(var(--spacing-unit) * 1);
+            border-radius: 16px;
+            box-shadow: 0 2px 8px var(--color-shadow);
+        }
+
+        nav a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+            border-radius: 10px;
+            transition: var(--transition-smooth);
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+            background: var(--color-bg-secondary);
+            transform: translateY(-1px);
+        }
+
+        .privacy-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 12) calc(var(--spacing-unit) * 4);
+            background: var(--color-bg-primary);
+            min-height: 100vh;
+        }
+
+        .privacy-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            color: var(--color-text-primary);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .privacy-section h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-top: calc(var(--spacing-unit) * 8);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            color: var(--color-text-primary);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+        }
+
+        .privacy-section p {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            color: var(--color-text-secondary);
+            line-height: 1.85;
+            font-size: 1.0625rem;
+        }
+
+        .privacy-section ul {
+            margin: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 4);
+            color: var(--color-text-secondary);
+        }
+
+        .privacy-section li {
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            line-height: 1.8;
+            font-size: 1.0625rem;
+            padding-left: calc(var(--spacing-unit) * 1);
+        }
+
+        .privacy-section strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 4);
+            color: var(--color-text-tertiary);
+            font-size: 0.9375rem;
+            border-top: 1px solid var(--color-border);
+            background: var(--color-bg-secondary);
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            :root {
+                --spacing-unit: 6px;
+            }
+
+            nav {
+                top: calc(var(--spacing-unit) * 2);
+                right: calc(var(--spacing-unit) * 2);
+                padding: calc(var(--spacing-unit) * 0.75);
+                gap: calc(var(--spacing-unit) * 0.5);
+            }
+
+            nav a {
+                padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2);
+                font-size: 14px;
+            }
+
+            .language-switcher {
+                top: calc(var(--spacing-unit) * 2);
+                left: calc(var(--spacing-unit) * 2);
+            }
+
+            .language-switcher select {
+                padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2);
+                font-size: 14px;
+            }
+
+            .privacy-section {
+                padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 3);
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav a {
+                padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <select id="languageSelect" onchange="switchLanguage(this.value)">
+            <option value="en">🌍 English</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="zh" selected>🇨🇳 中文</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+        </select>
+    </div>
+
+    <nav>
+        <a href="/zh/">首页</a>
+        <a href="/zh/blog/">博客</a>
+        <a href="/zh/privacy.html">隐私政策</a>
+    </nav>
+
+    <section class="privacy-section">
+        <h1>隐私政策</h1>
+        <p><strong>生效日期:</strong> 2025年10月25日</p>
+        <p><strong>最后更新:</strong> 2025年10月25日</p>
+
+        <h2>1. 简介</h2>
+        <p>
+            LianWord（以下简称"我们"）致力于保护您的隐私。本隐私政策说明了当您使用我们的移动应用程序和相关服务时，我们如何收集、使用、披露和保护您的信息。
+        </p>
+
+        <h2>2. 我们收集的信息</h2>
+        <p>我们可能会收集以下类型的信息：</p>
+        <ul>
+            <li><strong>个人信息:</strong> 创建账户时的电子邮件地址、姓名和账户凭证。</li>
+            <li><strong>使用数据:</strong> 有关您如何与应用互动的信息，包括学习进度、学习的词汇和使用的应用功能。</li>
+            <li><strong>设备信息:</strong> 设备类型、操作系统、唯一设备标识符和移动网络信息。</li>
+            <li><strong>音频数据:</strong> 用于发音练习的语音录音（在本地处理，除非您明确保存，否则不会永久存储）。</li>
+        </ul>
+
+        <h2>3. 我们如何使用您的信息</h2>
+        <p>我们将收集的信息用于以下目的：</p>
+        <ul>
+            <li>提供、维护和改进我们的语言学习服务</li>
+            <li>个性化您的学习体验并跟踪您的进度</li>
+            <li>就更新、新功能和客户支持与您沟通</li>
+            <li>分析使用模式并改进应用功能</li>
+            <li>确保我们服务的安全性和完整性</li>
+        </ul>
+
+        <h2>4. 数据共享和披露</h2>
+        <p>我们不会出售您的个人信息。我们只会在以下情况下共享您的信息：</p>
+        <ul>
+            <li><strong>服务提供商:</strong> 协助我们运营应用和提供服务的第三方供应商</li>
+            <li><strong>法律要求:</strong> 法律要求或为保护我们的权利和安全</li>
+            <li><strong>业务转让:</strong> 与合并、收购或资产出售有关</li>
+        </ul>
+
+        <h2>5. 数据安全</h2>
+        <p>
+            我们实施适当的技术和组织措施来保护您的个人信息免遭未经授权的访问、更改、披露或破坏。但是，没有任何通过互联网传输或电子存储的方法是100%安全的。
+        </p>
+
+        <h2>6. 数据保留</h2>
+        <p>
+            我们会在实现本隐私政策中概述的目的所需的时间内保留您的个人信息，除非法律要求或允许更长的保留期。您可以随时要求删除您的账户和相关数据。
+        </p>
+
+        <h2>7. 您的权利</h2>
+        <p>根据您所在的位置，您可能拥有以下权利：</p>
+        <ul>
+            <li>访问您的个人信息</li>
+            <li>更正不准确的数据</li>
+            <li>删除您的个人信息</li>
+            <li>反对或限制某些处理活动</li>
+            <li>数据可携性</li>
+        </ul>
+
+        <h2>8. 儿童隐私</h2>
+        <p>
+            我们的应用不适用于13岁以下的儿童。我们不会故意收集13岁以下儿童的个人信息。如果您认为我们收集了13岁以下儿童的信息，请立即与我们联系。
+        </p>
+
+        <h2>9. 国际数据传输</h2>
+        <p>
+            您的信息可能会被传输到您所在国家/地区以外的国家/地区并在那里进行处理。我们确保采取适当的保护措施来根据本隐私政策保护您的信息。
+        </p>
+
+        <h2>10. 隐私政策的变更</h2>
+        <p>
+            我们可能会不时更新本隐私政策。我们将通过在此页面上发布新的隐私政策并更新"最后更新"日期来通知您任何变更。我们鼓励您定期查看本隐私政策。
+        </p>
+
+        <h2>11. 联系我们</h2>
+        <p>
+            如果您对本隐私政策或我们的数据做法有任何疑问或疑虑，请通过以下方式联系我们：
+        </p>
+        <p>
+            <strong>电子邮件:</strong> help@lianword.com<br>
+            <strong>网站:</strong> https://lianword.com
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LianWord. All rights reserved.</p>
+    </footer>
+
+    <!-- Language switcher function -->
+    <script>
+        function switchLanguage(lang) {
+            const langMap = {
+                'en': '/privacy.html',
+                'ko': '/ko/privacy.html',
+                'ja': '/ja/privacy.html',
+                'zh': '/zh/privacy.html',
+                'vi': '/vi/privacy.html'
+            };
+            window.location.href = langMap[lang];
+        }
+    </script>
+</body>
+</html>

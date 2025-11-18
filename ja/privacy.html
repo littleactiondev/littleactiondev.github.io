@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシー - LianWord</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="LianWordのプライバシーポリシーをご確認ください。">
+    <meta name="keywords" content="プライバシーポリシー, LianWord, プライバシー">
+
+    <style>
+        :root {
+            --color-primary: #FF6B6B;
+            --color-primary-dark: #EE5A52;
+            --color-secondary: #4ECDC4;
+            --color-accent: #FFE66D;
+            --color-text-primary: #1A1A1A;
+            --color-text-secondary: #666666;
+            --color-text-tertiary: #999999;
+            --color-bg-primary: #FFFFFF;
+            --color-bg-secondary: #F8FAFC;
+            --color-border: #E2E8F0;
+            --color-shadow: rgba(15, 23, 42, 0.08);
+            --spacing-unit: 8px;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--color-text-primary);
+            background: var(--color-bg-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: calc(var(--spacing-unit) * 4);
+            left: calc(var(--spacing-unit) * 4);
+            z-index: 1000;
+        }
+
+        .language-switcher select {
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            background: var(--color-bg-primary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 1px 3px var(--color-shadow);
+        }
+
+        .language-switcher select:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .language-switcher select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        nav {
+            position: fixed;
+            top: calc(var(--spacing-unit) * 4);
+            right: calc(var(--spacing-unit) * 4);
+            z-index: 1000;
+            display: flex;
+            gap: calc(var(--spacing-unit) * 1);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: calc(var(--spacing-unit) * 1);
+            border-radius: 16px;
+            box-shadow: 0 2px 8px var(--color-shadow);
+        }
+
+        nav a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+            border-radius: 10px;
+            transition: var(--transition-smooth);
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+            background: var(--color-bg-secondary);
+            transform: translateY(-1px);
+        }
+
+        .privacy-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 12) calc(var(--spacing-unit) * 4);
+            background: var(--color-bg-primary);
+            min-height: 100vh;
+        }
+
+        .privacy-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            color: var(--color-text-primary);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .privacy-section h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-top: calc(var(--spacing-unit) * 8);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            color: var(--color-text-primary);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+        }
+
+        .privacy-section p {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            color: var(--color-text-secondary);
+            line-height: 1.85;
+            font-size: 1.0625rem;
+        }
+
+        .privacy-section ul {
+            margin: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 4);
+            color: var(--color-text-secondary);
+        }
+
+        .privacy-section li {
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            line-height: 1.8;
+            font-size: 1.0625rem;
+            padding-left: calc(var(--spacing-unit) * 1);
+        }
+
+        .privacy-section strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 4);
+            color: var(--color-text-tertiary);
+            font-size: 0.9375rem;
+            border-top: 1px solid var(--color-border);
+            background: var(--color-bg-secondary);
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            :root {
+                --spacing-unit: 6px;
+            }
+
+            nav {
+                top: calc(var(--spacing-unit) * 2);
+                right: calc(var(--spacing-unit) * 2);
+                padding: calc(var(--spacing-unit) * 0.75);
+                gap: calc(var(--spacing-unit) * 0.5);
+            }
+
+            nav a {
+                padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2);
+                font-size: 14px;
+            }
+
+            .language-switcher {
+                top: calc(var(--spacing-unit) * 2);
+                left: calc(var(--spacing-unit) * 2);
+            }
+
+            .language-switcher select {
+                padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2);
+                font-size: 14px;
+            }
+
+            .privacy-section {
+                padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 3);
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav a {
+                padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <select id="languageSelect" onchange="switchLanguage(this.value)">
+            <option value="en">🌍 English</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="ja" selected>🇯🇵 日本語</option>
+            <option value="zh">🇨🇳 中文</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+        </select>
+    </div>
+
+    <nav>
+        <a href="/ja/">ホーム</a>
+        <a href="/ja/blog/">ブログ</a>
+        <a href="/ja/privacy.html">プライバシーポリシー</a>
+    </nav>
+
+    <section class="privacy-section">
+        <h1>プライバシーポリシー</h1>
+        <p><strong>施行日:</strong> 2025年10月25日</p>
+        <p><strong>最終更新:</strong> 2025年10月25日</p>
+
+        <h2>1. はじめに</h2>
+        <p>
+            LianWord（以下「当社」）は、お客様のプライバシーを保護することに取り組んでいます。本プライバシーポリシーは、お客様が当社のモバイルアプリケーションおよび関連サービスを使用する際に、当社が情報を収集、使用、開示、保護する方法について説明します。
+        </p>
+
+        <h2>2. 収集する情報</h2>
+        <p>当社は以下の種類の情報を収集する場合があります：</p>
+        <ul>
+            <li><strong>個人情報:</strong> アカウント作成時のメールアドレス、氏名、アカウント認証情報。</li>
+            <li><strong>使用データ:</strong> 学習の進捗状況、学習した語彙、使用したアプリ機能など、アプリとのやり取りに関する情報。</li>
+            <li><strong>デバイス情報:</strong> デバイスの種類、オペレーティングシステム、一意のデバイス識別子、モバイルネットワーク情報。</li>
+            <li><strong>音声データ:</strong> 発音練習用の音声録音（ローカルで処理され、明示的に保存しない限り永続的に保存されません）。</li>
+        </ul>
+
+        <h2>3. 情報の使用方法</h2>
+        <p>当社は収集した情報を以下の目的で使用します：</p>
+        <ul>
+            <li>言語学習サービスの提供、維持、改善</li>
+            <li>学習体験のパーソナライズと進捗の追跡</li>
+            <li>アップデート、新機能、カスタマーサポートに関する連絡</li>
+            <li>使用パターンの分析とアプリ機能の改善</li>
+            <li>サービスのセキュリティと完全性の確保</li>
+        </ul>
+
+        <h2>4. データの共有と開示</h2>
+        <p>当社はお客様の個人情報を販売しません。以下の場合にのみお客様の情報を共有する場合があります：</p>
+        <ul>
+            <li><strong>サービスプロバイダー:</strong> アプリの運営とサービスの提供を支援する第三者ベンダー</li>
+            <li><strong>法的要件:</strong> 法律で義務付けられている場合、または当社の権利と安全を保護するため</li>
+            <li><strong>事業譲渡:</strong> 合併、買収、資産売却に関連して</li>
+        </ul>
+
+        <h2>5. データセキュリティ</h2>
+        <p>
+            当社は、不正アクセス、改ざん、開示、破壊からお客様の個人情報を保護するために、適切な技術的および組織的措置を実施しています。ただし、インターネット経由の送信方法や電子保管方法が100％安全であるわけではありません。
+        </p>
+
+        <h2>6. データ保持</h2>
+        <p>
+            当社は、本プライバシーポリシーに記載された目的を達成するために必要な期間、または法律でより長い保持期間が要求または許可されている場合、お客様の個人情報を保持します。お客様はいつでもアカウントと関連データの削除を要求できます。
+        </p>
+
+        <h2>7. お客様の権利</h2>
+        <p>お客様の所在地によっては、以下の権利を有する場合があります：</p>
+        <ul>
+            <li>個人情報へのアクセス</li>
+            <li>不正確なデータの訂正</li>
+            <li>個人情報の削除</li>
+            <li>特定の処理活動への異議または制限</li>
+            <li>データポータビリティ</li>
+        </ul>
+
+        <h2>8. 子どものプライバシー</h2>
+        <p>
+            当社のアプリは13歳未満の子どもを対象としていません。当社は13歳未満の子どもから故意に個人情報を収集しません。13歳未満の子どもから情報を収集したと思われる場合は、直ちに当社にご連絡ください。
+        </p>
+
+        <h2>9. 国際データ転送</h2>
+        <p>
+            お客様の情報は、お客様の居住国以外の国に転送され、処理される場合があります。当社は、本プライバシーポリシーに従ってお客様の情報を保護するための適切な保護措置が講じられていることを確認します。
+        </p>
+
+        <h2>10. プライバシーポリシーの変更</h2>
+        <p>
+            当社は随時本プライバシーポリシーを更新する場合があります。新しいプライバシーポリシーを本ページに掲載し、「最終更新」日を更新することで変更をお知らせします。本プライバシーポリシーを定期的に確認することをお勧めします。
+        </p>
+
+        <h2>11. お問い合わせ</h2>
+        <p>
+            本プライバシーポリシーまたは当社のデータ慣行について質問や懸念がある場合は、以下にご連絡ください：
+        </p>
+        <p>
+            <strong>メール:</strong> help@lianword.com<br>
+            <strong>ウェブサイト:</strong> https://lianword.com
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LianWord. All rights reserved.</p>
+    </footer>
+
+    <!-- Language switcher function -->
+    <script>
+        function switchLanguage(lang) {
+            const langMap = {
+                'en': '/privacy.html',
+                'ko': '/ko/privacy.html',
+                'ja': '/ja/privacy.html',
+                'zh': '/zh/privacy.html',
+                'vi': '/vi/privacy.html'
+            };
+            window.location.href = langMap[lang];
+        }
+    </script>
+</body>
+</html>
