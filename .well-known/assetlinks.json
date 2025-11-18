@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lianword",
+      "sha256_cert_fingerprints": [
+        "5E:D9:06:F2:AA:6A:CB:4F:A4:B1:B5:09:A1:77:2D:1F:65:87:0F:B5:BC:70:67:8A:CC:CB:CA:AB:AF:49:3F:11"
+      ]
+    }
+  }
+]
