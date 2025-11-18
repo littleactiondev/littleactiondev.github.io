@@ -19,18 +19,19 @@
 
     <style>
         :root {
-            --color-primary: #6366F1;
-            --color-primary-dark: #4F46E5;
-            --color-secondary: #10B981;
-            --color-text-primary: #0F172A;
-            --color-text-secondary: #475569;
-            --color-text-tertiary: #94A3B8;
+            --color-primary: #FF6B6B;
+            --color-primary-dark: #EE5A52;
+            --color-secondary: #4ECDC4;
+            --color-accent: #FFE66D;
+            --color-text-primary: #1A1A1A;
+            --color-text-secondary: #666666;
+            --color-text-tertiary: #999999;
             --color-bg-primary: #FFFFFF;
-            --color-bg-secondary: #F8FAFC;
-            --color-border: #E2E8F0;
-            --color-shadow: rgba(15, 23, 42, 0.08);
+            --color-bg-secondary: #FAFAFA;
+            --color-border: #E5E5E5;
+            --color-shadow: rgba(0, 0, 0, 0.04);
             --spacing-unit: 8px;
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -58,9 +59,32 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 4);
+            padding: calc(var(--spacing-unit) * 15) calc(var(--spacing-unit) * 6);
             text-align: center;
             background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .character {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(150px, 20vw, 250px);
+            height: auto;
+            opacity: 0.9;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(-50%) translateX(0);
+            }
+            50% {
+                transform: translateY(-55%) translateX(-10px);
+            }
         }
 
         .logo {
@@ -371,6 +395,10 @@
                 --spacing-unit: 6px;
             }
 
+            .character {
+                display: none;
+            }
+
             .logo {
                 margin-bottom: calc(var(--spacing-unit) * 6);
             }
@@ -438,6 +466,8 @@
     </nav>
 
     <header id="home">
+        <img src="/lian_alpha_small.png" alt="LianWord Character" class="character">
+
         <div class="logo">LianWord</div>
         <div class="tagline">
             아이가 모국어를 배우는 것처럼<br>
