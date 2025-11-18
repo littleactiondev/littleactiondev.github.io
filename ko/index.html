@@ -59,32 +59,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: calc(var(--spacing-unit) * 15) calc(var(--spacing-unit) * 6);
+            padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 4);
             text-align: center;
             background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .character {
-            position: absolute;
-            right: 10%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: clamp(150px, 20vw, 250px);
-            height: auto;
-            opacity: 0.9;
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(-50%) translateX(0);
-            }
-            50% {
-                transform: translateY(-55%) translateX(-10px);
-            }
         }
 
         .logo {
@@ -466,8 +443,6 @@
     </nav>
 
     <header id="home">
-        <img src="/lian_alpha_small.png" alt="LianWord Character" class="character">
-
         <div class="logo">LianWord</div>
         <div class="tagline">
             아이가 모국어를 배우는 것처럼<br>

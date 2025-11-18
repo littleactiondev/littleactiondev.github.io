@@ -62,28 +62,6 @@
             padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 4);
             text-align: center;
             background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-            position: relative;
-        }
-
-        .character {
-            position: absolute;
-            right: 10%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: clamp(150px, 20vw, 250px);
-            height: auto;
-            opacity: 0.9;
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(-50%) translateX(0);
-            }
-            50% {
-                transform: translateY(-55%) translateX(-10px);
-            }
         }
 
         .logo {
@@ -428,10 +406,6 @@
             .privacy-section {
                 padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 3);
             }
-
-            .character {
-                display: none;
-            }
         }
 
         @media (max-width: 480px) {
@@ -459,13 +433,12 @@
     </div>
 
     <nav>
-        <a href="#home">Home</a>
+        <a href="/">Home</a>
         <a href="/blog/">Blog</a>
-        <a href="#privacy">Privacy</a>
+        <a href="/privacy.html">Privacy</a>
     </nav>
 
     <header id="home">
-        <img src="/lian_alpha_small.png" alt="LianWord Character" class="character">
         <div class="logo">LianWord</div>
         <div class="tagline">
             Learn foreign vocabulary<br>
@@ -496,88 +469,6 @@
             </div>
         </div>
     </header>
-
-    <section class="privacy-section" id="privacy">
-        <h1>Privacy Policy</h1>
-        <p><strong>Effective Date:</strong> October 25, 2025</p>
-        <p><strong>Last Updated:</strong> October 25, 2025</p>
-
-        <h2>1. Introduction</h2>
-        <p>
-            LianWord ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and related services.
-        </p>
-
-        <h2>2. Information We Collect</h2>
-        <p>We may collect the following types of information:</p>
-        <ul>
-            <li><strong>Personal Information:</strong> Email address, name, and account credentials when you create an account.</li>
-            <li><strong>Usage Data:</strong> Information about how you interact with the app, including learning progress, vocabulary studied, and app features used.</li>
-            <li><strong>Device Information:</strong> Device type, operating system, unique device identifiers, and mobile network information.</li>
-            <li><strong>Audio Data:</strong> Voice recordings for pronunciation practice (processed locally and not stored permanently unless you explicitly save them).</li>
-        </ul>
-
-        <h2>3. How We Use Your Information</h2>
-        <p>We use the collected information for the following purposes:</p>
-        <ul>
-            <li>To provide, maintain, and improve our language learning services</li>
-            <li>To personalize your learning experience and track your progress</li>
-            <li>To communicate with you about updates, new features, and customer support</li>
-            <li>To analyze usage patterns and improve app functionality</li>
-            <li>To ensure the security and integrity of our services</li>
-        </ul>
-
-        <h2>4. Data Sharing and Disclosure</h2>
-        <p>We do not sell your personal information. We may share your information only in the following circumstances:</p>
-        <ul>
-            <li><strong>Service Providers:</strong> With third-party vendors who assist us in operating our app and providing services</li>
-            <li><strong>Legal Requirements:</strong> When required by law or to protect our rights and safety</li>
-            <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
-        </ul>
-
-        <h2>5. Data Security</h2>
-        <p>
-            We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure.
-        </p>
-
-        <h2>6. Data Retention</h2>
-        <p>
-            We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. You may request deletion of your account and associated data at any time.
-        </p>
-
-        <h2>7. Your Rights</h2>
-        <p>Depending on your location, you may have the following rights:</p>
-        <ul>
-            <li>Access to your personal information</li>
-            <li>Correction of inaccurate data</li>
-            <li>Deletion of your personal information</li>
-            <li>Objection to or restriction of certain processing activities</li>
-            <li>Data portability</li>
-        </ul>
-
-        <h2>8. Children's Privacy</h2>
-        <p>
-            Our app is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.
-        </p>
-
-        <h2>9. International Data Transfers</h2>
-        <p>
-            Your information may be transferred to and processed in countries other than your country of residence. We ensure appropriate safeguards are in place to protect your information in accordance with this Privacy Policy.
-        </p>
-
-        <h2>10. Changes to This Privacy Policy</h2>
-        <p>
-            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. We encourage you to review this Privacy Policy periodically.
-        </p>
-
-        <h2>11. Contact Us</h2>
-        <p>
-            If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:
-        </p>
-        <p>
-            <strong>Email:</strong> help@lianword.com<br>
-            <strong>Website:</strong> https://lianword.com
-        </p>
-    </section>
 
     <footer>
         <p>&copy; 2025 LianWord. All rights reserved.</p>
