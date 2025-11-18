@@ -284,6 +284,11 @@
             transition: var(--transition-smooth);
             border-radius: 8px;
             overflow: hidden;
+            min-width: 180px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .app-badge:hover {
@@ -298,20 +303,21 @@
         }
 
         .app-badge.coming-soon {
-            background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%);
-            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+            background: #000000;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
             color: white;
-            font-weight: 700;
-            font-size: 1rem;
+            font-weight: 600;
+            font-size: 0.8rem;
             text-align: center;
-            min-width: 180px;
-            height: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             cursor: not-allowed;
-            opacity: 0.9;
+            position: relative;
+        }
+
+        .app-badge.coming-soon::before {
+            content: '';
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 2px;
         }
 
         .app-badge.coming-soon:hover {
@@ -319,15 +325,18 @@
             box-shadow: none;
         }
 
-        .app-badge.coming-soon .badge-title {
-            font-size: 0.75rem;
+        .app-badge.coming-soon .badge-text {
+            font-size: 0.65rem;
             opacity: 0.9;
-            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
         }
 
-        .app-badge.coming-soon .badge-text {
-            font-size: 1.1rem;
-            font-weight: 800;
+        .app-badge.coming-soon .badge-main {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: -2px;
         }
 
         .app-badge.web-app {
@@ -452,8 +461,11 @@
                 <div class="badge-text">Web App</div>
             </a>
             <div class="app-badge coming-soon">
-                <div class="badge-title">App Store</div>
-                <div class="badge-text">Coming Soon</div>
+                <div>
+                    <div class="badge-text">Download on the</div>
+                    <div class="badge-main">App Store</div>
+                    <div class="badge-text" style="margin-top: 4px; font-size: 0.75rem; font-weight: 700; color: #FFD700;">Coming Soon</div>
+                </div>
             </div>
         </div>
     </header>
