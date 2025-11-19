@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>通过共同汉字学习日语・韩语・越南语 - LianWord</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="像孩子学习母语一样，通过你的大脑已经知道的共同词汇自然地学习日语・韩语・越南语。">
-    <meta name="keywords" content="日语学习, 韩语学习, 越南语学习, 共同汉字, 汉字词, 语言学习应用, LianWord, 日语词汇, 韩语词汇, 越南语词汇">
+    <!-- SEO优化 -->
+    <title>Lianword - 核心3000词掌握语言</title>
+    <meta name="description" content="暂且忘掉复杂的语法。通过语言学家验证的必备词汇，以最快速度掌握95%的日常会话。">
+    <meta name="keywords" content="Lianword, 单词本, 语言学习, 英语学习, 日语学习, 韩语学习, 必备单词, 3000单词, 词汇学习">
+    <meta name="author" content="Lianword Team">
+
+    <!-- Open Graph (SNS分享) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lianword.com/zh/">
+    <meta property="og:title" content="Lianword - 构建语言骨架">
+    <meta property="og:description" content="核心3000词开启最快语言学习。">
+    <meta property="og:image" content="https://lianword.com/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lianword - 构建语言骨架">
+    <meta name="twitter:description" content="核心3000词征服95%日常对话。">
+    <meta name="twitter:image" content="https://lianword.com/og-image.png">
 
     <!-- hreflang tags for SEO -->
     <link rel="alternate" hreflang="en" href="https://lianword.com/" />
@@ -17,468 +31,183 @@
     <link rel="alternate" hreflang="vi" href="https://lianword.com/vi/" />
     <link rel="alternate" hreflang="x-default" href="https://lianword.com/" />
 
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Tailwind CSS & Pretendard Font -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lian: {
+                            50: '#FFF9F5',
+                            100: '#FFE4D6',
+                            400: '#FF9F6F',
+                            500: '#FF844B',
+                            600: '#E86025',
+                            dark: '#4A3B32',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'PingFang SC', 'Noto Sans SC', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(255, 132, 75, 0.15)',
+                        'glow': '0 0 20px rgba(255, 159, 111, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            --color-primary: #FF6B6B;
-            --color-primary-dark: #EE5A52;
-            --color-secondary: #4ECDC4;
-            --color-accent: #FFE66D;
-            --color-text-primary: #1A1A1A;
-            --color-text-secondary: #666666;
-            --color-text-tertiary: #999999;
-            --color-bg-primary: #FFFFFF;
-            --color-bg-secondary: #F8FAFC;
-            --color-border: #E2E8F0;
-            --color-shadow: rgba(15, 23, 42, 0.08);
-            --spacing-unit: 8px;
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        body { font-family: 'Pretendard', -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif; color: #4A3B32; background-color: #FFF9F5; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--color-text-primary);
-            background: var(--color-bg-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        header {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 4);
-            text-align: center;
-            background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
-        }
-
-        .logo {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 800;
-            margin-bottom: calc(var(--spacing-unit) * 4);
-            color: var(--color-text-primary);
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        .text-gradient {
+            background: linear-gradient(to right, #FF844B, #FF9F6F);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.8s ease-out;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
-
-        .tagline {
-            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-            max-width: 700px;
-            line-height: 1.85;
-            color: var(--color-text-secondary);
-            font-weight: 400;
-            margin-bottom: calc(var(--spacing-unit) * 2);
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .tagline .highlight {
-            font-weight: 700;
-            color: var(--color-primary);
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Language Switcher */
-        .language-switcher {
-            position: fixed;
-            top: calc(var(--spacing-unit) * 4);
-            left: calc(var(--spacing-unit) * 4);
-            z-index: 1000;
-        }
-
-        .language-switcher select {
-            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
-            border: 2px solid var(--color-border);
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--color-text-primary);
-            background: var(--color-bg-primary);
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            box-shadow: 0 1px 3px var(--color-shadow);
-        }
-
-        .language-switcher select:hover {
-            border-color: var(--color-primary);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
-            transform: translateY(-1px);
-        }
-
-        .language-switcher select:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-
-        nav {
-            position: fixed;
-            top: calc(var(--spacing-unit) * 4);
-            right: calc(var(--spacing-unit) * 4);
-            z-index: 1000;
-            display: flex;
-            gap: calc(var(--spacing-unit) * 1);
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: calc(var(--spacing-unit) * 1);
-            border-radius: 16px;
-            box-shadow: 0 2px 8px var(--color-shadow);
-        }
-
-        nav a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
-            border-radius: 10px;
-            transition: var(--transition-smooth);
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            color: var(--color-primary);
-            background: var(--color-bg-secondary);
-            transform: translateY(-1px);
-        }
-
-        .privacy-section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: calc(var(--spacing-unit) * 12) calc(var(--spacing-unit) * 4);
-            background: var(--color-bg-primary);
-        }
-
-        .privacy-section h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: calc(var(--spacing-unit) * 6);
-            color: var(--color-text-primary);
-            font-weight: 800;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-
-        .privacy-section h2 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-top: calc(var(--spacing-unit) * 8);
-            margin-bottom: calc(var(--spacing-unit) * 3);
-            color: var(--color-text-primary);
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            line-height: 1.3;
-        }
-
-        .privacy-section p {
-            margin-bottom: calc(var(--spacing-unit) * 3);
-            color: var(--color-text-secondary);
-            line-height: 1.85;
-            font-size: 1.0625rem;
-        }
-
-        .privacy-section ul {
-            margin: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 4);
-            color: var(--color-text-secondary);
-        }
-
-        .privacy-section li {
-            margin-bottom: calc(var(--spacing-unit) * 2);
-            line-height: 1.8;
-            font-size: 1.0625rem;
-            padding-left: calc(var(--spacing-unit) * 1);
-        }
-
-        .privacy-section strong {
-            color: var(--color-text-primary);
-            font-weight: 600;
-        }
-
-        footer {
-            text-align: center;
-            padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 4);
-            color: var(--color-text-tertiary);
-            font-size: 0.9375rem;
-            border-top: 1px solid var(--color-border);
-            background: var(--color-bg-secondary);
-            font-weight: 500;
-        }
-
-        .download-button {
-            display: inline-block;
-            margin-top: calc(var(--spacing-unit) * 6);
-            padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 6);
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.125rem;
-            font-weight: 700;
-            border-radius: 14px;
-            transition: var(--transition-smooth);
-            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        .download-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .download-button:hover::before {
-            left: 100%;
-        }
-
-        .download-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 32px rgba(99, 102, 241, 0.35);
-        }
-
-        .download-button:active {
-            transform: translateY(-1px) scale(0.98);
-        }
-
-        /* App Badges */
-        .app-badges {
-            display: flex;
-            gap: calc(var(--spacing-unit) * 3);
-            justify-content: center;
-            align-items: center;
-            margin-top: calc(var(--spacing-unit) * 6);
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-        }
-
-        .app-badge {
-            display: inline-block;
-            transition: var(--transition-smooth);
-            border-radius: 8px;
-            overflow: hidden;
-            width: 180px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .app-badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .app-badge img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        .app-badge.coming-soon {
-            background: #000000;
-            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
-            color: white;
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-align: center;
-            cursor: not-allowed;
-            position: relative;
-        }
-
-        .app-badge.coming-soon::before {
-            content: '';
-            display: block;
-            font-size: 1.5rem;
-            margin-bottom: 2px;
-        }
-
-        .app-badge.coming-soon:hover {
-            transform: none;
-            box-shadow: none;
-        }
-
-        .app-badge.coming-soon .badge-text {
-            font-size: 0.65rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-        }
-
-        .app-badge.coming-soon .badge-main {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-top: -2px;
-        }
-
-        .app-badge.web-app {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #059669 100%);
-            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
-            color: white;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1rem;
-            text-align: center;
-            width: 180px;
-            
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .app-badge.web-app .badge-title {
-            font-size: 0.75rem;
-            opacity: 0.95;
-            margin-bottom: 2px;
-        }
-
-        .app-badge.web-app .badge-text {
-            font-size: 1.1rem;
-            font-weight: 800;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            :root {
-                --spacing-unit: 6px;
-            }
-
-            .logo {
-                margin-bottom: calc(var(--spacing-unit) * 6);
-            }
-
-            nav {
-                top: calc(var(--spacing-unit) * 2);
-                right: calc(var(--spacing-unit) * 2);
-                padding: calc(var(--spacing-unit) * 0.75);
-                gap: calc(var(--spacing-unit) * 0.5);
-            }
-
-            nav a {
-                padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2);
-                font-size: 14px;
-            }
-
-            .language-switcher {
-                top: calc(var(--spacing-unit) * 2);
-                left: calc(var(--spacing-unit) * 2);
-            }
-
-            .language-switcher select {
-                padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2);
-                font-size: 14px;
-            }
-
-            .download-button {
-                padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
-                font-size: 1rem;
-            }
-
-            .privacy-section {
-                padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 3);
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                flex-direction: column;
-                gap: 0;
-            }
-
-            nav a {
-                padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
-            }
+        .floating-mockup {
+            animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
-<body>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <select id="languageSelect" onchange="switchLanguage(this.value)">
-            <option value="en">🌍 English</option>
-            <option value="ko">🇰🇷 한국어</option>
-            <option value="ja">🇯🇵 日本語</option>
-            <option value="zh" selected>🇨🇳 中文</option>
-            <option value="vi">🇻🇳 Tiếng Việt</option>
-        </select>
-    </div>
+<body class="overflow-x-hidden">
 
-    <nav>
-        <a href="/zh/">首页</a>
-        <a href="/zh/blog/">博客</a>
-        <a href="/zh/privacy.html">隐私政策</a>
-    </nav>
-
-    <header id="home">
-        <div class="logo">LianWord</div>
-        <div class="tagline">
-            像孩子学习母语一样<br>
-            学习外语词汇<br>
-            通过你的大脑已经知道的<br>
-            <span class="highlight">同源词</span>
+    <!-- Navigation -->
+    <nav class="container mx-auto px-6 py-5 flex justify-between items-center relative z-50">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="location.href='/zh/'">
+            <div class="text-2xl font-extrabold tracking-tighter text-lian-dark">
+                Lianword<span class="text-lian-500">.</span>
+            </div>
         </div>
 
-        <div class="app-badges">
-            <a href="https://play.google.com/store/apps/details?id=com.lianword&pcampaignid=web_share"
-               target="_blank"
-               class="app-badge">
-                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/zh-cn_badge_web_generic.png"
-                     alt="Google Play立即下载">
+        <div class="flex items-center space-x-4">
+            <!-- Language Selector -->
+            <select id="languageSelector" onchange="switchLanguage(this.value)" class="bg-white border border-lian-100 text-lian-dark text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-lian-400 focus:ring-2 focus:ring-lian-100 transition shadow-sm cursor-pointer">
+                <option value="en">🌍 English</option>
+                <option value="ko">🇰🇷 한국어</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="zh" selected>🇨🇳 中文</option>
+                <option value="vi">🇻🇳 Tiếng Việt</option>
+            </select>
+
+            <!-- Download Button (Desktop) -->
+            <a href="#download" class="hidden md:flex bg-lian-500 hover:bg-lian-600 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition shadow-lg shadow-lian-400/30">
+                下载应用
             </a>
-            <a href="https://lianword-official.web.app/"
-               target="_blank"
-               class="app-badge web-app">
-                <div class="badge-title">在网页上试用</div>
-                <div class="badge-text">Web App</div>
-            </a>
-            <div class="app-badge coming-soon">
-                <div>
-                    <div class="badge-text">Download on the</div>
-                    <div class="badge-main">App Store</div>
-                    <div class="badge-text" style="margin-top: 4px; font-size: 0.75rem; font-weight: 700; color: #FFD700;">Coming Soon</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container mx-auto px-6 mt-10 md:mt-20 flex flex-col md:flex-row items-center">
+        <!-- Left: Text -->
+        <div class="md:w-1/2 text-center md:text-left z-10">
+            <div class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-wide text-lian-600 uppercase bg-white border border-lian-100 rounded-full shadow-sm">
+                ✨ Google Play 正式上线
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] mb-6 text-lian-dark">
+                构建语言骨架，<br>
+                <span class="text-gradient">核心3000词</span><br>
+                助您速成。
+            </h1>
+            <p class="text-lg md:text-xl text-gray-500 mb-8 leading-relaxed">
+                暂且忘掉复杂的语法。通过语言学家验证的必备词汇，<br class="hidden md:block">
+                以最快速度掌握95%的日常会话。
+            </p>
+
+            <!-- Button Group -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a href="https://play.google.com/store/apps/details?id=com.lianword" target="_blank" class="flex items-center justify-center px-8 py-4 text-lg font-bold rounded-2xl bg-lian-500 hover:bg-lian-600 text-white transition shadow-soft hover:translate-y-[-2px]">
+                    <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.36,13.08L17.92,14.5L15.39,12L17.92,9.5L20.36,10.93C20.94,11.27 20.94,11.83 20.36,12.16L20.36,13.08M16.81,8.88L14.54,11.15L6.05,2.66L16.81,8.88Z" /></svg>
+                    在 Google Play 下载
+                </a>
+                <a href="#features" class="flex items-center justify-center px-8 py-4 text-lg font-bold rounded-2xl bg-white hover:bg-gray-50 text-lian-dark border border-lian-100 transition">
+                    了解更多
+                </a>
+            </div>
+        </div>
+
+        <!-- Right: App Mockup -->
+        <div class="md:w-1/2 mt-16 md:mt-0 relative flex justify-center">
+            <!-- Background Glow Effect -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-lian-400/20 rounded-full blur-[80px]"></div>
+
+            <!-- Smartphone Frame -->
+            <div class="relative z-10 floating-mockup">
+                <div class="w-[280px] h-[580px] bg-white border-[10px] border-gray-900 rounded-[3rem] shadow-2xl overflow-hidden flex items-center justify-center relative">
+                    <!-- Top Notch -->
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-xl z-20"></div>
+
+                    <!-- App Screenshot Placeholder -->
+                    <img src="../app-screenshot.png" alt="Lianword 应用界面" class="w-full h-full object-cover bg-gray-100" onerror="this.src='https://placehold.co/280x580/FFF9F5/FF844B?text=Lianword+App';">
                 </div>
             </div>
         </div>
     </header>
 
-    <footer>
-        <p>&copy; 2025 LianWord. All rights reserved.</p>
+    <!-- Features Section (Bento Grid Style) -->
+    <section id="features" class="container mx-auto px-6 py-24">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-lian-dark">为什么选择 Lianword？</h2>
+            <p class="text-gray-500">剔除无效学习，只专注于核心内容。</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white p-8 rounded-3xl border border-lian-100 shadow-sm hover:shadow-md transition duration-300 group">
+                <div class="w-14 h-14 bg-lian-50 rounded-2xl flex items-center justify-center text-lian-500 mb-6 text-2xl group-hover:scale-110 transition">📊</div>
+                <h3 class="text-xl font-bold mb-3 text-lian-dark">严选3000词</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    基于语言学统计，严选覆盖95%日常对话的高频词汇。
+                </p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white p-8 rounded-3xl border border-lian-100 shadow-sm hover:shadow-md transition duration-300 group">
+                <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-500 mb-6 text-2xl group-hover:scale-110 transition">🧠</div>
+                <h3 class="text-xl font-bold mb-3 text-lian-dark">科学记忆系统</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    应用遗忘曲线理论，在遗忘临界点智能提醒复习。
+                </p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white p-8 rounded-3xl border border-lian-100 shadow-sm hover:shadow-md transition duration-300 group">
+                <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-500 mb-6 text-2xl group-hover:scale-110 transition">🌍</div>
+                <h3 class="text-xl font-bold mb-3 text-lian-dark">直观联想</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    并非单纯翻译，而是通过图像概念映射，像母语者一样自然习得。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & CTA -->
+    <footer id="download" class="border-t border-lian-100 bg-white">
+        <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <span class="text-xl font-bold text-lian-dark">Lianword</span>
+                <p class="text-gray-400 text-sm mt-1">&copy; 2025 LianWord. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="/zh/blog/" class="text-gray-500 hover:text-lian-500 text-sm transition">博客</a>
+                <a href="/zh/privacy.html" class="text-gray-500 hover:text-lian-500 text-sm transition">隐私政策</a>
+                <a href="mailto:contact@lianword.com" class="text-gray-500 hover:text-lian-500 text-sm transition">联系我们</a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Language auto-detection and redirection -->
+    <!-- Language Switcher Script -->
     <script>
-        // Language switcher function
         function switchLanguage(lang) {
             const langMap = {
                 'en': '/',
