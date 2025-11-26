@@ -1,2 +1,14 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Naver crawler
 User-agent: Yeti
-Allow:/
+Allow: /
+
+# Google crawler
+User-agent: Googlebot
+Allow: /
+
+# Sitemap location
+Sitemap: https://lianword.com/sitemap.xml
